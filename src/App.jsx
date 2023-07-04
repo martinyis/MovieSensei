@@ -1,11 +1,18 @@
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
+import Home from "./pages/Home/Home";
+import Generate from "./pages/Generate/Generate";
+import Pricing from "./pages/Pricing/Pricing";
+import { Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
-    <div class="container mx-auto ">
+    <div className="">
       <NavBar />
-      <h1 class="text-4xl font-bold sm:text-2xl">Desktop Heading</h1>
-      <p class="text-lg sm:text-base">Desktop paragraph text</p>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/generation" element={<Generate />} />
+        <Route path="/pricing" element={<Pricing />} />
+      </Routes>
     </div>
   );
 }

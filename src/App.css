@@ -11,4 +11,11 @@ button {
   border: 1px solid #867070;
   background: #d5b4b4;
   color: #ffffff;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+button:hover {
+  background: #867070;
+  border-color: #d5b4b4;
+  color: #ffffff;
+  transform: scale(1.1);
 }
