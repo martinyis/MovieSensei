@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import { Squash as Hamburger } from "hamburger-react";
 import Logo from "./Logo";
 import AuthBtn from "./AuthBtn";
+import { selectIsAuth } from "../../redux/slices/auth";
+import { useSelector, useDispatch } from "react-redux/es/hooks/useSelector";
+import LogOut from "./LogOut";
 const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
+  const isAuth = useSelector(selectIsAuth);
   const toggleNav = () => {
     setNavOpen(!navOpen);
   };
@@ -34,7 +38,7 @@ const NavBar = () => {
                 <li className="hover:text-[#E4D0D0]">Buy Credits</li>
               </Link>
             </ul>
-            <AuthBtn />
+            {isAuth ? <LogOut /> : <AuthBtn />}
           </div>
         </div>
       </div>
@@ -59,7 +63,9 @@ const NavBar = () => {
               <li className="hover:text-[#E4D0D0]">Buy Credits</li>
             </Link>
           </ul>
-          <AuthBtn />
+        </div>
+        <div className={`absolute top-2 right-[60px]`}>
+          {isAuth ? <LogOut /> : <AuthBtn />}
         </div>
         <div className="md:block hidden z-10 mr-4 absolute top-2 right-0">
           <Hamburger
