@@ -1,7 +1,16 @@
-import React from "react";
-
+import React, { useState } from "react";
+import CenteredTabs from "./ui/Centered";
+import Generator from "./Generator";
+import { TabContext } from "../../Contexts/TabContext";
 const Generate = () => {
-  return <div>Generate</div>;
+  const [option, setOption] = useState(0);
+  return (
+    <div className="mt-[200px] mx-auto max-w-[1120px] md:px-5 z-0">
+      <TabContext.Provider value={{ option, setOption }}>
+        <Generator />
+      </TabContext.Provider>
+    </div>
+  );
 };
 
 export default Generate;

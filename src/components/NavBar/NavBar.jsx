@@ -42,7 +42,7 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <div className="hidden md:block h-[64px] bg-[#ffffff] w-[100%] px-10">
+      <div className="hidden md:block h-[64px] bg-[#ffffff] w-[100%] px-10 absolute top-0 z-50">
         <div className="absolute top-5">
           <Logo />
         </div>

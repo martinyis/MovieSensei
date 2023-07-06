@@ -27,7 +27,7 @@ function App(props) {
   return (
     <GoogleLogin
       className="w-[150px] px-0"
-      clientId={process.env.REACT_APP_CLIENT_ID}
+      clientId="1076988421984-1v2clduelaft0i38vo3qojsujkrlvs2m.apps.googleusercontent.com"
       buttonText="Sign In"
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
