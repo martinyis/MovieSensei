@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Plus from "./../../../assets/icons/plus.svg";
 import Minus from "./../../../assets/icons/minus.svg";
-
-const Counter = () => {
+import { TabContext } from "../../../Contexts/TabContext";
+import { useContext } from "react";
+const Counter = (props) => {
+  const { setAllCount } = useContext(TabContext);
   const [count, setCount] = useState(5);
   const handlePlus = () => {
     if (count === 10) {
@@ -16,6 +18,10 @@ const Counter = () => {
     }
     setCount(count - 1);
   };
+  //usereefct
+  useEffect(() => {
+    setAllCount(count);
+  }, [count]);
   return (
     <div className="flex gap-[15px] items-center">
       <div className="w-[118px] h-[30px] flex cursor-pointer">

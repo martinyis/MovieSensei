@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CreatableSelect from "react-select/creatable";
 import { IoMdClose } from "react-icons/io";
 const CountryDrop = (props) => {
-  const { options } = props;
+  const { options, val, getInfo } = props;
   const [selectedOption, setSelectedOption] = useState(null);
   const [allOptions, setAllOptions] = useState([]);
   const handleOptionChange = (selectedOption) => {
@@ -18,6 +18,9 @@ const CountryDrop = (props) => {
     const newOptions = allOptions.filter((el) => el.value !== value);
     setAllOptions(newOptions);
   };
+  useEffect(() => {
+    getInfo(allOptions, val);
+  }, [allOptions]);
   return (
     <div className="">
       <CreatableSelect

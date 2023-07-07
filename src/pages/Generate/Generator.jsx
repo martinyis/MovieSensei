@@ -4,6 +4,7 @@ import MoodCollector from "./collectors/MoodCollector";
 import { TabContext } from "../../Contexts/TabContext";
 import { useContext } from "react";
 import FilterCollector from "./collectors/FilterCollector";
+import MemoryCollector from "./collectors/MemroryCollector";
 const Generator = () => {
   const { option } = useContext(TabContext);
   const defaultTexts = [
@@ -18,7 +19,7 @@ const Generator = () => {
         {option == 0 ? (
           <MoodCollector defaultText={defaultTexts[0]} />
         ) : option == 1 ? (
-          <MoodCollector defaultText={defaultTexts[1]} />
+          <MemoryCollector defaultText={defaultTexts[1]} />
         ) : (
           <FilterCollector />
         )}

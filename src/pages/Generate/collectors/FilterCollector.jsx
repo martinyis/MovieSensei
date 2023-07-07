@@ -8,10 +8,22 @@ import {
   countryOptions,
   genreOptions,
 } from "../data/options";
+import { TabContext } from "../../../Contexts/TabContext";
+import { useContext } from "react";
 import CountryDrop from "../ui/CountryDrop";
 const FilterCollector = (props) => {
   const { defaultText } = props;
   const [textInfo, setTextInfo] = useState({ text: "", length: 0 });
+  const { allCount } = useContext(TabContext);
+  const [filterOptions, setFilterOptions] = useState({
+    minYear: 1950,
+    maxYear: new Date().getFullYear(),
+    minRating: 0,
+    maxRating: 10,
+    countries: [],
+    genres: [],
+    description: "",
+  });
 
   const handleChange = (e) => {
     const enteredText = e.target.value;
@@ -20,32 +32,104 @@ const FilterCollector = (props) => {
       text: truncatedText,
       length: truncatedText.length,
     });
+    setFilterOptions({
+      ...filterOptions,
+      description: enteredText,
+    });
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({
+      quantity: allCount,
+      filterOptions: filterOptions,
+    });
+  };
+  const getInfo = (info, variant) => {
+    switch (variant) {
+      case "minYear":
+        setFilterOptions({
+          ...filterOptions,
+          minYear: info,
+        });
+        break;
+      case "maxYear":
+        setFilterOptions({
+          ...filterOptions,
+          maxYear: info,
+        });
+        break;
+      case "minRating":
+        setFilterOptions({
+          ...filterOptions,
+          minRating: info,
+        });
+        break;
+      case "maxRating":
+        setFilterOptions({
+          ...filterOptions,
+          maxRating: info,
+        });
+        break;
+      case "countries":
+        setFilterOptions({
+          ...filterOptions,
+          countries: info,
+        });
+        break;
+      case "genres":
+        setFilterOptions({
+          ...filterOptions,
+          genres: info,
+        });
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="mb-96px">
-      <form action="" className="flex flex-col gap-[38px]">
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+        action=""
+        className="flex flex-col gap-[38px]"
+      >
         <div className="flex gap-[20px] justify-between">
           <div className="w-[50%]">
             <p className="text-[14px]">Min Year</p>
-            <Dropdown options={yearOptions} />
+            <Dropdown getInfo={getInfo} val={"minYear"} options={yearOptions} />
           </div>
           <div className="w-[50%]">
             <p className="text-[14px]">Max Year</p>
-            <Dropdown options={yearOptions} />
+            <Dropdown getInfo={getInfo} val={"maxYear"} options={yearOptions} />
           </div>
         </div>
         <div className="flex gap-[20px] justify-between">
           <div className="w-[50%]">
             <p className="text-[14px]">Min IMDB rating</p>
-            <Dropdown options={ratingOptions} />
+            <Dropdown
+              getInfo={getInfo}
+              val={"minRating"}
+              options={ratingOptions}
+            />
           </div>
           <div className="w-[50%]">
             <p className="text-[14px]">Max IMDB rating</p>
-            <Dropdown options={ratingOptions} />
+            <Dropdown
+              getInfo={getInfo}
+              val={"maxRating"}
+              options={ratingOptions}
+            />
           </div>
         </div>
-        <CountryDrop options={countryOptions} />
-        <CountryDrop options={genreOptions} />
+        <CountryDrop
+          getInfo={getInfo}
+          val={"countries"}
+          options={countryOptions}
+        />
+        <CountryDrop getInfo={getInfo} val={"genres"} options={genreOptions} />
         <div>
           <textarea
             name=""

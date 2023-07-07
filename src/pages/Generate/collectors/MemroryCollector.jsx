@@ -24,7 +24,12 @@ const MoodCollector = (props) => {
   };
   return (
     <div>
-      <form action="">
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+        action=""
+      >
         <textarea
           name=""
           id=""
@@ -44,14 +49,7 @@ const MoodCollector = (props) => {
             <Counter />
           </div>
           <div className="flex gap-[18px] items-end">
-            <button
-              onClick={(e) => {
-                handleSubmit(e);
-              }}
-              className="w-[196px] h-[48px]"
-            >
-              Find a movie
-            </button>
+            <button className="w-[196px] h-[48px]">Find a movie</button>
             <p className="text-[16px]">(1 credit)</p>
           </div>
         </div>
