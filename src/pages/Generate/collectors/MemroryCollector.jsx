@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import Counter from "../ui/Counter";
 import { TabContext } from "../../../Contexts/TabContext";
 import { useContext } from "react";
-
+import { setFormData } from "../../../redux/slices/info";
+import { useDispatch, useSelector } from "react-redux";
+import { selectInfoPending } from "../../../redux/slices/info";
 const MoodCollector = (props) => {
+  const dispatch = useDispatch();
+  const isPending = useSelector(selectInfoPending);
   const { defaultText } = props;
   const [textInfo, setTextInfo] = useState({ text: "", length: 0 });
   const { allCount } = useContext(TabContext);
@@ -17,10 +21,13 @@ const MoodCollector = (props) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      allCount,
-      textInfo: textInfo.text,
-    });
+    dispatch(
+      setFormData({
+        quantity: allCount,
+        description: textInfo.text,
+        option: "memory",
+      })
+    );
   };
   return (
     <div>
@@ -49,7 +56,13 @@ const MoodCollector = (props) => {
             <Counter />
           </div>
           <div className="flex gap-[18px] items-end">
-            <button className="w-[196px] h-[48px]">Find a movie</button>
+            {isPending ? (
+              <button disabled className="w-[196px] h-[48px]">
+                Find a movie
+              </button>
+            ) : (
+              <button className="w-[196px] h-[48px]">Find a movie</button>
+            )}
             <p className="text-[16px]">(1 credit)</p>
           </div>
         </div>

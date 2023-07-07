@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import Counter from "../ui/Counter";
 import { TabContext } from "../../../Contexts/TabContext";
 import { useContext } from "react";
-
+import { useDispatch, useSelector } from "react-redux";
+import { setFormData } from "../../../redux/slices/info";
+import { selectInfoPending } from "../../../redux/slices/info";
 const MoodCollector = (props) => {
   const { defaultText } = props;
+  const dispatch = useDispatch();
   const [textInfo, setTextInfo] = useState({ text: "", length: 0 });
   const { allCount } = useContext(TabContext);
+  const isPending = useSelector(selectInfoPending);
   const handleChange = (e) => {
     const enteredText = e.target.value;
     const truncatedText = enteredText.slice(0, 400); // Limit the text to 400 characters
@@ -21,10 +25,22 @@ const MoodCollector = (props) => {
       allCount,
       textInfo: textInfo.text,
     });
+    dispatch(
+      setFormData({
+        quantity: allCount,
+        description: textInfo.text,
+        option: "mood",
+      })
+    );
   };
   return (
     <div>
-      <form action="">
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+        action=""
+      >
         <textarea
           name=""
           id=""
@@ -44,14 +60,13 @@ const MoodCollector = (props) => {
             <Counter />
           </div>
           <div className="flex gap-[18px] items-end">
-            <button
-              onClick={(e) => {
-                handleSubmit(e);
-              }}
-              className="w-[196px] h-[48px]"
-            >
-              Find a movie
-            </button>
+            {isPending ? (
+              <button disabled className="w-[196px] h-[48px]">
+                Find a movie
+              </button>
+            ) : (
+              <button className="w-[196px] h-[48px]">Find a movie</button>
+            )}
             <p className="text-[16px]">(1 credit)</p>
           </div>
         </div>
