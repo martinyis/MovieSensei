@@ -2,6 +2,9 @@ import React from "react";
 import Dropdown from "./../ui/DropDown";
 import { useState, useEffect } from "react";
 import Counter from "../ui/Counter";
+import { useDispatch, useSelector } from "react-redux";
+import { setFormData } from "../../../redux/slices/info";
+import { selectInfoPending } from "../../../redux/slices/info";
 import {
   yearOptions,
   ratingOptions,
@@ -11,10 +14,13 @@ import {
 import { TabContext } from "../../../Contexts/TabContext";
 import { useContext } from "react";
 import CountryDrop from "../ui/CountryDrop";
+import FindMoviesBtn from "../ui/FindMovieBtn";
 const FilterCollector = (props) => {
   const { defaultText } = props;
   const [textInfo, setTextInfo] = useState({ text: "", length: 0 });
   const { allCount } = useContext(TabContext);
+  const isPending = useSelector(selectInfoPending);
+  const dispatch = useDispatch();
   const [filterOptions, setFilterOptions] = useState({
     minYear: 1950,
     maxYear: new Date().getFullYear(),
@@ -39,9 +45,17 @@ const FilterCollector = (props) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(
+      setFormData({
+        quantity: allCount,
+        ...filterOptions,
+        option: "filter",
+      })
+    );
     console.log({
       quantity: allCount,
-      filterOptions: filterOptions,
+      ...filterOptions,
+      option: "filter",
     });
   };
   const getInfo = (info, variant) => {
@@ -144,13 +158,13 @@ const FilterCollector = (props) => {
           <div className="text-right text-sm text-gray-500 mt-2">
             {textInfo.length}/400
           </div>
-          <div className="flex gap-[43px] items-end">
+          <div className="flex gap-[43px] items-end 550:flex-col 550:items-start">
             <div>
               <p className="text-[24px]">Number of movies</p>
               <Counter />
             </div>
             <div className="flex gap-[18px] items-end">
-              <button className="w-[196px] h-[48px]">Find a movie</button>
+              <FindMoviesBtn isPending={isPending} />
               <p className="text-[16px]">(1 credit)</p>
             </div>
           </div>

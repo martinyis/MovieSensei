@@ -24,14 +24,14 @@ const Cards = () => {
     <div className="mt-[77px] mx-auto max-w-[1120px] px-5 flex gap-[46px] md:flex-col">
       {cards.map((card) => {
         return (
-          <div className="rounded-lg bg-[#ffffff] shadow-lg w-[100%] px-[39px]">
-            <div className="rounded-[76px] w-[76px] h-[74px] bg-[#867070] mx-auto flex justify-center items-center mt-[-38px] sm:w-[56px] sm:h-[54px]">
+          <div className="rounded-lg bg-[#ffffff] shadow-lg w-[100%] px-[39px] xs:px-[20px]">
+            <div className="rounded-[76px] w-[76px] h-[74px] bg-[#867070] mx-auto flex justify-center items-center mt-[-38px] sm:w-[56px] sm:h-[54px] ">
               <img src={card.icon} alt="" />
             </div>
-            <p className="mt-[13px] text-[30px] font-medium text-center sm:text-[24px]">
+            <p className="mt-[13px] text-[30px] font-medium text-center sm:text-[24px] xs:text-[16px]">
               {card.title}
             </p>
-            <p className="pt-[26px] text-[20px] text-center pb-[26px] sm:text-[16px]">
+            <p className="pt-[26px] text-[20px] text-center pb-[26px] sm:text-[16px] xs:text-[10px]">
               {card.text}
             </p>
           </div>

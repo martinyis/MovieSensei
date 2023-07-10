@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import CreatableSelect from "react-select/creatable";
+
 const Dropdown = (props) => {
   const { options, val, getInfo } = props;
   const [selectedOption, setSelectedOption] = useState(null);
+
   const handleOptionChange = (selectedOption) => {
     setSelectedOption(selectedOption);
-    getInfo(selectedOption, val);
+    if (selectedOption !== null) {
+      getInfo(selectedOption.value, val);
+    }
   };
+
   return (
     <div className="">
       <CreatableSelect

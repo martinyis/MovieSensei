@@ -19,7 +19,14 @@ const CountryDrop = (props) => {
     setAllOptions(newOptions);
   };
   useEffect(() => {
-    getInfo(allOptions, val);
+    getInfo(
+      allOptions
+        .map((obj) => {
+          return obj.value;
+        })
+        .join(", "),
+      val
+    );
   }, [allOptions]);
   return (
     <div className="">

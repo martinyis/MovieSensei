@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Centered from "./ui/Centered";
 import MoodCollector from "./collectors/MoodCollector";
 import { TabContext } from "../../Contexts/TabContext";
@@ -14,6 +14,7 @@ import FilterCollector from "./collectors/FilterCollector";
 import MemoryCollector from "./collectors/MemroryCollector";
 import MovieItem from "./MovieItem";
 import MovieItemSkeleton from "../../components/Loaders/MovieItemSceleton";
+
 const Generator = () => {
   const { option } = useContext(TabContext);
   const defaultTexts = [
@@ -25,17 +26,22 @@ const Generator = () => {
   const infoPayload = useSelector(selectInfoPayload);
   const infoLoading = useSelector(selectInfoLoading);
   const formData = useSelector(selectFormData);
+  const [componentMounted, setComponentMounted] = useState(false);
+  const [filteredMovies, setFilteredMovies] = useState([]);
+
   useEffect(() => {
-    // Dispatch the fetchInfo action when the component mounts
-    dispatch(fetchInfo(formData));
+    if (componentMounted) {
+      dispatch(fetchInfo(formData));
+    }
+    setComponentMounted(true); // Set the component to mounted
   }, [formData]);
 
-  //selectInfoPayload
   useEffect(() => {
-    console.log(infoPayload, "here");
-  });
-  const handleChange = (event, newValue) => {};
-
+    if (infoPayload && infoPayload.movies.length > 0) {
+      const filteredMovies = infoPayload.movies.filter((movie) => movie.Title);
+      setFilteredMovies(filteredMovies);
+    }
+  }, [infoPayload]);
   return (
     <div className="max-w-[732px] mx-auto">
       <Centered />
@@ -52,12 +58,15 @@ const Generator = () => {
         <p className="text-[36px] font-semibold mb-[16px]">Results</p>
         <div className="flex flex-col gap-[16px]">
           {infoLoading ? (
-            <MovieItemSkeleton />
-          ) : (
-            infoPayload &&
-            infoPayload.movies.map((movie) => (
-              <MovieItem key={movie.id} movie={movie} />
+            Array.from({ length: 5 }).map((_, index) => (
+              <MovieItemSkeleton key={index} />
             ))
+          ) : filteredMovies.length > 0 ? (
+            filteredMovies.map((movie, id) => (
+              <MovieItem key={movie.id} movie={movie} num={id + 1} />
+            ))
+          ) : (
+            <p></p>
           )}
         </div>
       </div>

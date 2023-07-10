@@ -30,7 +30,7 @@ const infoSlice = createSlice({
     formData: {},
     error: null,
     payload: null,
-    loading: true,
+    loading: false,
   },
   reducers: {
     setAuthTrue: (state, action) => {

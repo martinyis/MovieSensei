@@ -2,14 +2,18 @@ import React, { useEffect } from "react";
 import MovieImg from "./../../assets/content/avengers.png";
 import IMDBIcon from "./../../assets/icons/imdb-icon.png";
 const MovieItem = (props) => {
-  const { movie } = props;
+  const { movie, num } = props;
   useEffect(() => {
     console.log(movie);
   });
+
+  if (movie.Title == null) {
+    return <></>;
+  }
   return (
     <div className="py-[14px] px-[34px] bg-[#F5F5F5] flex justify-between sm:justify-center sm:items-center">
       <div className="leftSide flex sm:flex-col justify-center sm:items-center gap-5">
-        <p className="mr-[11px] text-[28px]">1</p>
+        <p className="mr-[11px] text-[28px]">{num}</p>
         <div className="mr-[21px]">
           <img
             src={`${movie.Poster}`}

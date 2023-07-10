@@ -4,7 +4,8 @@ import axios from "./../../axios.js";
 import { isEmpty } from "lodash";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchLogin } from "../../redux/slices/auth";
-function App(props) {
+
+function AuthBtn(props) {
   const { text } = props;
   const dispatch = useDispatch();
   const responseGoogle = async (response) => {
@@ -26,14 +27,22 @@ function App(props) {
 
   return (
     <GoogleLogin
-      className="w-[150px] px-0"
       clientId="1076988421984-1v2clduelaft0i38vo3qojsujkrlvs2m.apps.googleusercontent.com"
-      buttonText="Sign In"
+      buttonText={text}
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
       cookiePolicy={"single_host_origin"}
+      render={(renderProps) => (
+        <button
+          onClick={renderProps.onClick}
+          disabled={renderProps.disabled}
+          className="text-[16px] sm:text-[12px]"
+        >
+          {text}
+        </button>
+      )}
     />
   );
 }
 
-export default App;
+export default AuthBtn;
