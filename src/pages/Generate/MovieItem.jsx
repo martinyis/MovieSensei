@@ -46,7 +46,7 @@ const MovieItem = (props) => {
         </div>
       </div>
       <div className="rightSide flex gap-[10px] 550:flex-col 550:gap-[5px] sm:hidden">
-        <div>
+        <div className="w-[30px]">
           <img src={IMDBIcon} alt="" />
         </div>
         <p className="text-black text-[12px]">{movie?.Ratings[0]?.Value}</p>

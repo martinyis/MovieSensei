@@ -7,6 +7,7 @@ export const ratingOptions = Array.from({ length: 10 }, (_, i) => {
 });
 
 export const countryOptions = [
+  { label: "Any", value: "Any" },
   { label: "Åland Islands", value: "AX" },
   { label: "Albania", value: "AL" },
   { label: "Afghanistan", value: "AF" },
@@ -257,6 +258,7 @@ countryOptions.forEach((el) => {
 });
 
 export const movieGenres = [
+  "Any",
   "Action",
   "Adventure",
   "Animated",

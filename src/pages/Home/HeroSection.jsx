@@ -17,7 +17,7 @@ const HeroSection = () => {
         companion on your cinematic journey!
       </p>
       <Link to="/generation">
-        <button className="mt-[24px] w-[113px] text-center mx-auto">
+        <button className="mt-[24px] w-[113px] text-center mx-auto px-[90px] sm:px-[60px] sm:py-2 py-4">
           Generate
         </button>
       </Link>

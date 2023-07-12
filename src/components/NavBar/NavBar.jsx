@@ -6,6 +6,7 @@ import AuthBtn from "./AuthBtn";
 import { selectIsAuth } from "../../redux/slices/auth";
 import { useSelector, useDispatch } from "react-redux/es/hooks/useSelector";
 import LogOut from "./LogOut";
+import CreditCount from "./CreditCount";
 const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
   const isAuth = useSelector(selectIsAuth);
@@ -29,7 +30,7 @@ const NavBar = () => {
             <Logo />
           </Link>
           <div className="flex gap-[48px] items-center">
-            <ul className="flex gap-[48px]">
+            <ul className="flex gap-[48px] lg:gap-[20px]">
               <Link to="/">
                 <li className="hover:text-[#E4D0D0]">Home</li>
               </Link>
@@ -38,6 +39,9 @@ const NavBar = () => {
               </Link>
               <Link to="/pricing">
                 <li className="hover:text-[#E4D0D0]">Buy Credits</li>
+              </Link>
+              <Link to="/pricing" onClick={() => setNavOpen(false)}>
+                <CreditCount />
               </Link>
             </ul>
             {isAuth ? <LogOut /> : <AuthBtn text={"Sign in"} />}
@@ -66,9 +70,12 @@ const NavBar = () => {
             <Link to="/pricing" onClick={() => setNavOpen(false)}>
               <li className="hover:text-[#E4D0D0]">Buy Credits</li>
             </Link>
+            <Link to="/pricing" onClick={() => setNavOpen(false)}>
+              <CreditCount />
+            </Link>
           </ul>
         </div>
-        <div className={`absolute top-2 right-[60px] -z-20 mr-2`}>
+        <div className={`absolute top-4 right-[60px] xs:top-5 -z-20 mr-2`}>
           {isAuth ? <LogOut /> : <AuthBtn text={"Sign in"} />}
         </div>
         <div className="md:block hidden z-10 mr-4 absolute top-2 right-0">

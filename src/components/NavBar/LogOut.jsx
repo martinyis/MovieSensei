@@ -8,8 +8,11 @@ const LogOut = () => {
   };
   return (
     <div>
-      <button onClick={handleLogout} className="px-10 sm:w-[20px] z-0">
-        Logout
+      <button
+        onClick={handleLogout}
+        className="px-10 py-2 lg:px-6 lg:py-1 xs:px-2 xs:py-0 z-0"
+      >
+        Sign Out
       </button>
     </div>
   );

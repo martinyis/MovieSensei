@@ -14,7 +14,11 @@ import FilterCollector from "./collectors/FilterCollector";
 import MemoryCollector from "./collectors/MemroryCollector";
 import MovieItem from "./MovieItem";
 import MovieItemSkeleton from "../../components/Loaders/MovieItemSceleton";
-
+import {
+  setCredits,
+  selectCredits,
+  decreaseCredits,
+} from "../../redux/slices/credits";
 const Generator = () => {
   const { option } = useContext(TabContext);
   const defaultTexts = [
@@ -25,15 +29,24 @@ const Generator = () => {
   const dispatch = useDispatch();
   const infoPayload = useSelector(selectInfoPayload);
   const infoLoading = useSelector(selectInfoLoading);
+  const credits = useSelector(selectCredits);
   const formData = useSelector(selectFormData);
   const [componentMounted, setComponentMounted] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState([]);
-
-  useEffect(() => {
+  const generateMovie = async () => {
     if (componentMounted) {
-      dispatch(fetchInfo(formData));
+      console.log(credits);
+      if (credits > 0) {
+        await dispatch(decreaseCredits());
+        await dispatch(fetchInfo(formData));
+      } else {
+        alert("You have no credits left");
+      }
     }
-    setComponentMounted(true); // Set the component to mounted
+    setComponentMounted(true);
+  };
+  useEffect(() => {
+    generateMovie();
   }, [formData]);
 
   useEffect(() => {
