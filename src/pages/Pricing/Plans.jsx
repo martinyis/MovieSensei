@@ -1,11 +1,16 @@
 import React from "react";
 import axios from "./../../axios.js";
+import { useSelector } from "react-redux";
+import { selectIsAuth } from "../../redux/slices/auth.js";
+import AuthBtn from "./../../components/NavBar/AuthBtn.jsx";
 const Plans = () => {
-  const handleCheckout = () => {
+  const isAuth = useSelector(selectIsAuth);
+  const handleCheckout = (id, credits) => {
     ///app/stripe/create-checkout-session
     axios
       .post("/app/stripe/create-checkout-session", {
-        priceId: "price_1JZ2XtGZqjg0YJZ0QZ0ZQZ0Z",
+        priceId: id,
+        credits: credits,
       })
       .then((res) => {
         window.location.href = res.data.url;
@@ -16,7 +21,7 @@ const Plans = () => {
       credits: 25,
       perSearch: "0.20",
       price: 5,
-      priceId: "price_1NT66JIdcglxzsJ5azll9fM4",
+      priceId: "price_1NSmCjIdcglxzsJ5ITCZpeyg",
     },
     {
       credits: 50,
@@ -28,7 +33,7 @@ const Plans = () => {
       credits: 150,
       perSearch: "0.13",
       price: 20,
-      priceId: "price_1NSmCjIdcglxzsJ5ITCZpeyg",
+      priceId: "price_1NT66JIdcglxzsJ5azll9fM4",
     },
   ];
   return (
@@ -48,12 +53,16 @@ const Plans = () => {
               <p className="text-[72px] font-bold 550:text-[62px]">
                 ${el.price}
               </p>
-              <button
-                onClick={handleCheckout}
-                className="w-[195px] h-[56px] md:w-[150px] md:h-[40px]"
-              >
-                Buy credits
-              </button>
+              {isAuth ? (
+                <button
+                  onClick={() => handleCheckout(el.priceId, el.credits)}
+                  className="text-[16px] sm:text-[12px] px-10 py-2 lg:px-6 lg:py-1 xs:px-2 xs:py-0]"
+                >
+                  Buy credits
+                </button>
+              ) : (
+                <AuthBtn text="Sign in to buy" />
+              )}
             </div>
           </div>
         );
