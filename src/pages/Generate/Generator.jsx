@@ -39,8 +39,20 @@ const Generator = () => {
     if (componentMounted) {
       console.log(credits);
       if (credits > 0) {
-        await dispatch(decreaseCredits());
-        await dispatch(fetchInfo(formData));
+        const data = await dispatch(fetchInfo(formData));
+        console.log(data);
+        if (data.payload !== undefined) {
+          const filteredMovies2 = data.payload.movies.filter(
+            (movie) => movie.Title
+          );
+          if (filteredMovies2.length >= 0) {
+            dispatch(decreaseCredits());
+          } else {
+            generateMovie();
+          }
+        } else {
+          generateMovie();
+        }
       } else {
         setShowPopup(true);
       }

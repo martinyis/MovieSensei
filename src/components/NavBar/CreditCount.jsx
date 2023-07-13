@@ -28,7 +28,7 @@ const CreditCount = () => {
       className={`flex items-center gap-[10px] ${!isAuth ? "hidden" : "flex"}`}
     >
       <img src={CreditIcon} alt="" />
-      <p>{amount} Credits left</p>
+      <p>{credits} Credits left</p>
     </li>
   );
 };
