@@ -1,4 +1,4 @@
-export const yearOptions = Array.from({ length: 44 }, (_, i) => {
+export const yearOptions = Array.from({ length: 74 }, (_, i) => {
   return { value: 1950 + i, label: 1950 + i };
 }).reverse();
 
