@@ -8,6 +8,10 @@ import { gapi } from "gapi-script";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchMe } from "./redux/slices/auth";
+import Footer from "./components/Footer/Footer";
+import Privacy from "./pages/Formal/Privacy";
+import Terms from "./pages/Formal/Terms";
+import Cookies from "./pages/Formal/Cookies";
 function App() {
   const clientId = process.env.REACT_APP_CLIENT_ID || undefined;
   const dispatch = useDispatch();
@@ -29,7 +33,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/generation" element={<Generate />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/cookies" element={<Cookies />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

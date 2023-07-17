@@ -36,29 +36,28 @@ const Generator = () => {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const generateMovie = async () => {
-    if (!componentMounted) return;
-
-    console.log(credits);
-    if (credits <= 0) {
-      setShowPopup(true);
-      return;
+    if (componentMounted) {
+      console.log(credits);
+      if (credits > 0) {
+        const data = await dispatch(fetchInfo(formData));
+        console.log(data);
+        if (data.payload !== undefined) {
+          const filteredMovies2 = data.payload.movies.filter(
+            (movie) => movie.Title
+          );
+          if (!filteredMovies2.length >= 0) {
+            dispatch(decreaseCredits());
+            return;
+          } else {
+            generateMovie();
+          }
+        } else {
+          generateMovie();
+        }
+      } else {
+        setShowPopup(true);
+      }
     }
-
-    const data = await dispatch(fetchInfo(formData));
-    console.log(data);
-
-    if (data.payload === undefined || !data.payload.movies.length) {
-      generateMovie();
-      return;
-    }
-
-    const filteredMovies2 = data.payload.movies.filter((movie) => movie.Title);
-
-    if (!filteredMovies2.length) {
-      generateMovie();
-      return;
-    }
-
     setComponentMounted(true);
   };
   useEffect(() => {

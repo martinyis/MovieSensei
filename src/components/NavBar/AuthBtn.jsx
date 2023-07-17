@@ -27,7 +27,7 @@ function AuthBtn(props) {
 
   return (
     <GoogleLogin
-      clientId="1076988421984-1v2clduelaft0i38vo3qojsujkrlvs2m.apps.googleusercontent.com"
+      clientId={`${process.env.REACT_APP_CLIENT_ID}`}
       buttonText={text}
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
