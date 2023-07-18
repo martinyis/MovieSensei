@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styles from "./HeroSection.module.css";
 const HeroSection = () => {
   return (
     <div className="mx-auto max-w-[1120px] pt-[160px] px-10 md:pt-[100px] xs:px-5">
@@ -19,15 +20,20 @@ const HeroSection = () => {
           Generate
         </button>
       </Link>
-      {/* <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/QRKwEeXAVx0"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe> */}
+      <div className={styles.iframeBox}>
+        <div className={styles.ytholder}>
+          <iframe
+            className="absolute w-[100%] h-[100%]"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/QRKwEeXAVx0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
     </div>
   );
 };
