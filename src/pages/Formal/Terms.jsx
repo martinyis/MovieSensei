@@ -1,7 +1,7 @@
 import React from "react";
 
 const Terms = () => {
-  return <div>Terms</div>;
+  return <div>In developing process</div>;
 };
 
 export default Terms;
