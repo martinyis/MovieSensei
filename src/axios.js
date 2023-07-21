@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const instanse = axios.create({
-  baseURL: "https://movie-sensei-back.onrender.com/",
+  // baseURL: "https://movie-sensei-back.onrender.com/",
+  baseURL: "http://localhost:8000/",
 });
 
 instanse.interceptors.request.use((config) => {
