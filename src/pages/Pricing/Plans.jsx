@@ -6,7 +6,6 @@ import AuthBtn from "./../../components/NavBar/AuthBtn.jsx";
 const Plans = () => {
   const isAuth = useSelector(selectIsAuth);
   const handleCheckout = (id, credits) => {
-    ///app/stripe/create-checkout-session
     axios
       .post("/app/stripe/create-checkout-session", {
         priceId: id,
@@ -21,19 +20,20 @@ const Plans = () => {
       credits: 25,
       perSearch: "0.20",
       price: 5,
-      priceId: "price_1NSmCjIdcglxzsJ5ITCZpeyg",
+      priceId: "price_1NV0reIdcglxzsJ5fVtUT1ME",
+      // priceId: "price_1NSmCjIdcglxzsJ5ITCZpeyg",
     },
     {
       credits: 50,
       perSearch: "0.18",
       price: 9,
-      priceId: "price_1NT65dIdcglxzsJ5VZ5uzOvt",
+      priceId: "price_1NV0rbIdcglxzsJ5kudqoYmo",
     },
     {
       credits: 150,
       perSearch: "0.13",
       price: 20,
-      priceId: "price_1NT66JIdcglxzsJ5azll9fM4",
+      priceId: "price_1NV0rWIdcglxzsJ5OI4fcH8V",
     },
   ];
   return (
