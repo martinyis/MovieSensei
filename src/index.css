@@ -6,14 +6,14 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,regular,italic,700,700italic);
 
 body {
-  background-color: #f5ebeb;
+  background-color: #150050;
   font-family: "DM Sans";
-  color: #867070;
+  color: #ffffff;
   overflow-x: hidden;
 }
 
 .mainlogo {
-  color: #867070;
+  color: #ffffff;
   font-size: 20px;
   font-family: "Roboto Condensed";
   font-style: normal;

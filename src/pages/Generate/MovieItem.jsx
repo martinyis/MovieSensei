@@ -11,7 +11,7 @@ const MovieItem = (props) => {
     return <></>;
   }
   return (
-    <div className="py-[14px] px-[34px] bg-[#F5F5F5] flex justify-between sm:justify-center sm:items-center">
+    <div className="py-[14px] px-[34px] bg-[#3F0071] flex justify-between sm:justify-center sm:items-center">
       <div className="leftSide flex sm:flex-col justify-center sm:items-center gap-5">
         <p className="mr-[11px] text-[28px]">{num}</p>
         <div className="mr-[21px]">
@@ -26,15 +26,15 @@ const MovieItem = (props) => {
             <p className="text-[24px] font-semibold 550:text-[18px]">
               {movie.Title}
             </p>
-            <p className="text-[18px] font-semibold text-[#867070A1] 550:text-[14px]">
+            <p className="text-[18px] font-semibold text-[#ffffff] 550:text-[14px]">
               {movie.Year}
             </p>
           </div>
-          <p className="text-[16px] 550:text-[14px] text-[#867070] mb-[10px]">
+          <p className="text-[16px] 550:text-[14px] text-[#e6ccf5] mb-[10px]">
             <span>{movie.Country}</span> • <span>{movie.Genre}</span>{" "}
             <span>Director: {movie.Director}</span>
           </p>
-          <p className="text-[16px]  550:text-[14px] text-[#867070]">
+          <p className="text-[16px]  550:text-[14px] text-[#e6ccf5]">
             Cast: {movie.Actors}
           </p>
         </div>

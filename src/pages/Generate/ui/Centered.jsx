@@ -15,7 +15,7 @@ export default function ScrollableTabsButtonPrevent() {
   }, [value]);
 
   return (
-    <Box sx={{ maxWidth: 732, bgcolor: "background.paper" }}>
+    <Box sx={{ maxWidth: 732, bgcolor: "#000000" }}>
       <Tabs
         value={value}
         onChange={handleChange}
@@ -23,21 +23,21 @@ export default function ScrollableTabsButtonPrevent() {
         scrollButtons={false}
         sx={{
           "& .MuiTabs-indicator": {
-            backgroundColor: "#867070",
+            backgroundColor: "#000000",
           },
           //when hover grey
           "& .MuiTab-root:hover": {
-            backgroundColor: "#ffffff",
+            backgroundColor: "#000000",
           },
           //when selcted grey
           "& .Mui-selected": {
-            backgroundColor: "#ffffff",
+            backgroundColor: "#000000",
           },
         }}
         aria-label="scrollable prevent tabs example"
         TabIndicatorProps={{
           style: {
-            backgroundColor: "#867070",
+            backgroundColor: "#610094",
             height: "2px",
           },
         }}
@@ -46,15 +46,15 @@ export default function ScrollableTabsButtonPrevent() {
           label="Mood"
           className="w-[33.333%]"
           sx={{
-            color: "#867070", // Set the default text color
+            color: "#ffffff", // Set the default text color
             "&.Mui-selected": {
-              color: "#867070", // Set the color when the tab is selected
+              color: "#ffffff", // Set the color when the tab is selected
             },
             "&.Mui-focusVisible": {
-              color: "#867070", // Set the color when the tab is focused
+              color: "#ffffff", // Set the color when the tab is focused
             },
             "&:hover": {
-              color: "#867070", // Set the color when the tab is hovered
+              color: "#ffffff", // Set the color when the tab is hovered
             },
           }}
         />
@@ -62,15 +62,15 @@ export default function ScrollableTabsButtonPrevent() {
           label="Memory"
           className="w-[33.333%]"
           sx={{
-            color: "#867070",
+            color: "#ffffff",
             "&.Mui-selected": {
-              color: "#867070",
+              color: "#ffffff",
             },
             "&.Mui-focusVisible": {
-              color: "#867070",
+              color: "#ffffff",
             },
             "&:hover": {
-              color: "#867070",
+              color: "#ffffff",
             },
           }}
         />
@@ -78,15 +78,15 @@ export default function ScrollableTabsButtonPrevent() {
           label="Filters"
           className="w-[33.333%]"
           sx={{
-            color: "#867070",
+            color: "#ffffff",
             "&.Mui-selected": {
-              color: "#867070",
+              color: "#ffffff",
             },
             "&.Mui-focusVisible": {
-              color: "#867070",
+              color: "#ffffff",
             },
             "&:hover": {
-              color: "#867070",
+              color: "#ffffff",
             },
           }}
         />

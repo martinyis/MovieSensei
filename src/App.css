@@ -7,14 +7,14 @@ button {
   align-items: center;
   gap: 10px;
   border-radius: 50px;
-  border: 1px solid #867070;
-  background: #d5b4b4;
+  border: 1px solid #3f0071;
+  background: #610094;
   color: #ffffff;
   transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
 }
 button:hover {
-  background: #867070;
-  border-color: #d5b4b4;
-  color: #ffffff;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #610094;
   transform: scale(1.1);
 }

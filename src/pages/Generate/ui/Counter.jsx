@@ -58,11 +58,11 @@ const Counter = (props) => {
     }
   };
   return (
-    <div className="flex gap-[15px] items-center">
+    <div className="flex gap-[15px] items-center text-[#000000]">
       <div className="w-[118px] h-[30px] flex cursor-pointer">
         <div
           onClick={handlePlus}
-          className="bg-[#D5B4B4] px-[12px] rounded-l-[10px]"
+          className="bg-[#610094] px-[12px] rounded-l-[10px]"
         >
           <img
             src={Plus}
@@ -72,12 +72,12 @@ const Counter = (props) => {
         </div>
         <div
           onClick={handleMinus}
-          className="bg-[#ffffff] px-[12px] rounded-r-[10px] "
+          className="bg-[#ffffff] px-[12px] rounded-r-[10px]"
         >
           <img
             src={Minus}
             alt=""
-            className="transition-transform duration-300 ease-in-out hover:scale-125"
+            className="transition-transform duration-300 ease-in-out hover:scale-125 text-[#000000]"
           />
         </div>
       </div>

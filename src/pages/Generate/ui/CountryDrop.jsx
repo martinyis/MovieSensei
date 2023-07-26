@@ -29,7 +29,12 @@ const CountryDrop = (props) => {
     );
   }, [allOptions]);
   return (
-    <div className="">
+    <div
+      className=""
+      style={{
+        color: "#000000",
+      }}
+    >
       <CreatableSelect
         isClearable
         options={options}
@@ -40,10 +45,10 @@ const CountryDrop = (props) => {
             ...base,
             height: "52px",
             borderRadius: "8px",
-            border: "1px solid #9D9D9D",
-            background: "#FFF",
+            border: "1px solid #610094",
+            background: "#000000",
             fontSize: "16px",
-            color: "#867070",
+            color: "#ffffff",
             cursor: "pointer",
             placeholder: {
               ...base.placeholder,
@@ -55,7 +60,7 @@ const CountryDrop = (props) => {
       <div className="mt-[28px] flex gap-[16px] flex-wrap">
         {allOptions.map((el) => {
           return (
-            <div className="flex bg-[#D5B4B4] h-[32px] rounded-[50px] px-[20px] gap-[20px] justify-between items-center">
+            <div className="flex bg-[#610094] h-[32px] rounded-[50px] px-[20px] gap-[20px] justify-between items-center">
               <p className="text-[16px] text-[#ffffff]">{el.value}</p>
               <IoMdClose
                 className="cursor-pointer"

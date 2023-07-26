@@ -18,8 +18,8 @@ module.exports = {
       },
     },
     colors: {
-      primary: "#867070",
-      secondary: "#F2F2F2",
+      primary: "#000000",
+      secondary: "#000000",
     },
   },
   plugins: [],

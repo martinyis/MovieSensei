@@ -7,24 +7,24 @@ const Footer = () => {
       <p>© 2023 All rights reserved</p>
       <ul className="flex items-center xs:gap-[15px] gap-[37px] text-[16px] ">
         <Link to="/terms">
-          <li className="hover:text-[#E4D0D0] cursor-pointer">Terms</li>
+          <li className="hover:text-[#610094] cursor-pointer">Terms</li>
         </Link>
         <Link to="/privacy">
-          <li className="hover:text-[#E4D0D0] cursor-pointer">Privacy</li>
+          <li className="hover:text-[#610094] cursor-pointer">Privacy</li>
         </Link>
         <Link to="/cookies">
-          <li className="hover:text-[#E4D0D0] cursor-pointer">Cookies</li>
+          <li className="hover:text-[#610094] cursor-pointer">Cookies</li>
         </Link>
       </ul>
       <div className="flex items-center gap-[13px] xs:flex-col">
         <a
           href="mailto:martinyis11@gmail.com"
-          className="text-[16px] hover:text-[#E4D0D0] cursor-pointer"
+          className="text-[16px] hover:text-[#610094] cursor-pointer"
         >
           martinyis11@gmail.com
         </a>
         <a href="https://github.com/martinyis">
-          <div className="p-[10px] bg-primary rounded-[50px] cursor-pointer">
+          <div className="p-[10px] bg-[#000000] rounded-[50px] cursor-pointer">
             <img src={GithubIcon} alt="" />
           </div>
         </a>

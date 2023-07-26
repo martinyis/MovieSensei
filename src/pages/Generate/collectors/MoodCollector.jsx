@@ -48,7 +48,7 @@ const MoodCollector = (props) => {
           cols="30"
           rows="10"
           placeholder={defaultText}
-          className="w-[100%] h-[196px] rounded-[4px] border-[3px] border-[#E2DCFF] outline-none bg-white px-[38px] py-[29px] resize-none"
+          className="w-[100%] h-[196px] rounded-[4px] border-[2px] border-[#610094] outline-none bg-white px-[38px] py-[29px] resize-none bg-primary"
           onChange={handleChange}
           value={textInfo.text} // Bind the value to the state
         ></textarea>

@@ -20,7 +20,7 @@ const HeroSection = () => {
           Generate
         </button>
       </Link>
-      <div className={styles.iframeBox}>
+      {/* <div className={styles.iframeBox}>
         <div className={styles.ytholder}>
           <iframe
             className="absolute w-[100%] h-[100%]"
@@ -33,7 +33,7 @@ const HeroSection = () => {
             allowfullscreen
           ></iframe>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -40,12 +40,12 @@ const Plans = () => {
     <div className="pt-[40px] flex flex-col gap-[72px] sm:gap-[46px] px-5">
       {plans.map((el) => {
         return (
-          <div className="flex sm:flex-col justify-between items-center py-[56px] px-[156px] bg-[#FFF] rounded-[12px] md:px-[25px] 550:px-[5px]">
+          <div className="flex sm:flex-col justify-between items-center py-[56px] px-[156px] bg-[#140322] rounded-[12px] md:px-[25px] 550:px-[5px]">
             <div className="flex flex-col gap-[16px]">
               <p className="text-[34px] font-medium 550:text-[28px]">
                 {el.credits} Credits
               </p>
-              <p className="text-[24px] 550:text-[18px] text-[#3D3D3D]">
+              <p className="text-[24px] 550:text-[18px] text-[#ffffff]">
                 ${el.perSearch} per search
               </p>
             </div>

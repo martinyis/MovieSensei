@@ -4,6 +4,7 @@ import CreatableSelect from "react-select/creatable";
 const Dropdown = (props) => {
   const { options, val, getInfo } = props;
   const [selectedOption, setSelectedOption] = useState(null);
+  //body coor black for this component
 
   const handleOptionChange = (selectedOption) => {
     setSelectedOption(selectedOption);
@@ -13,7 +14,11 @@ const Dropdown = (props) => {
   };
 
   return (
-    <div className="">
+    <div
+      style={{
+        color: "#000000",
+      }}
+    >
       <CreatableSelect
         isClearable
         options={options}
@@ -24,14 +29,15 @@ const Dropdown = (props) => {
             ...base,
             height: "52px",
             borderRadius: "8px",
-            border: "1px solid #9D9D9D",
-            background: "#FFF",
+            border: "1px solid #610094",
+            background: "#000000",
             fontSize: "16px",
             color: "#867070",
             cursor: "pointer",
             placeholder: {
               ...base.placeholder,
               color: "#867070",
+              cursor: "pointer",
             },
           }),
         }}
