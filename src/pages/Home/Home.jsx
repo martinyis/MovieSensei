@@ -8,13 +8,13 @@ import MoodSection from "./MoodSection";
 import MovieItemSceleton from "../../components/Loaders/MovieItemSceleton";
 const Home = () => {
   return (
-    <div className="pb-[200px]">
+    <main className="pb-[200px]">
       <HeroSection />
       <AiBoard board={Board} />
       <Features />
       <AiBoard board={Board2} />
       <MoodSection />
-    </div>
+    </main>
   );
 };
 

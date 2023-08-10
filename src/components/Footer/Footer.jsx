@@ -3,7 +3,7 @@ import GithubIcon from "./../../assets/icons/github-icon.png";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <div className="mx-auto max-w-[1320px] flex md:flex-col  gap-[20px] md:justify-center justify-between items-center h-[100px] mb-[50px] px-10">
+    <footer className="mx-auto max-w-[1320px] flex md:flex-col  gap-[20px] md:justify-center justify-between items-center h-[100px] mb-[50px] px-10">
       <p>© 2023 All rights reserved</p>
       <ul className="flex items-center xs:gap-[15px] gap-[37px] text-[16px] ">
         <Link to="/terms">
@@ -29,7 +29,7 @@ const Footer = () => {
           </div>
         </a>
       </div>
-    </div>
+    </footer>
   );
 };
 

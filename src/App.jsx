@@ -27,7 +27,7 @@ function App() {
     dispatch(fetchMe());
   }, []);
   return (
-    <div className="">
+    <>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -38,7 +38,7 @@ function App() {
         <Route path="/cookies" element={<Cookies />} />
       </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 

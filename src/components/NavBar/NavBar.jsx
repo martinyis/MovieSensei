@@ -23,8 +23,8 @@ const NavBar = () => {
   }, [navOpen]);
 
   return (
-    <div>
-      <div className="block md:hidden h-[64px] bg-[#000000] w-[100%] px-5 lg:px-10">
+    <header>
+      <nav className="block md:hidden h-[64px] bg-[#000000] w-[100%] px-5 lg:px-10">
         <div className="h-[100%] flex justify-between items-center mx-auto max-w-[1120px]">
           <Link to="/">
             <Logo />
@@ -47,8 +47,8 @@ const NavBar = () => {
             {isAuth ? <LogOut /> : <AuthBtn text={"Sign in"} />}
           </div>
         </div>
-      </div>
-      <div className="hidden md:block h-[64px] bg-[#000000] w-[100%] px-10 sm:px-5 absolute top-0 z-50">
+      </nav>
+      <nav className="hidden md:block h-[64px] bg-[#000000] w-[100%] px-10 sm:px-5 absolute top-0 z-50">
         <div className="absolute top-5">
           <Link to="/">
             <Logo />
@@ -86,8 +86,8 @@ const NavBar = () => {
             easing="ease-in"
           />
         </div>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 
